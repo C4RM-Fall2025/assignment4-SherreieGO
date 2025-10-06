@@ -1,0 +1,11 @@
+def getBondPrice(y, face, couponRate, m, ppy=1):
+    C = face * couponRate / ppy
+    N = int(m * ppy)  
+    bondPrice = 0
+
+    for t in range(1, N + 1):
+        bondPrice += C / (1 + y / ppy) ** t
+
+    bondPrice += face / (1 + y / ppy) ** N
+
+    return bondPrice
